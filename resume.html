@@ -3,76 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salaheddine Lafnouche — Product Designer &amp; HCI</title>
-  <meta name="description" content="Product Designer &amp; HCI specialist based in Morocco. I design accessible, user-centred digital experiences. Google UX Design certified.">
-
-  <!-- Fonts -->
+  <title>Salaheddine Lafnouche — UX/UI Designer</title>
+  <meta name="description" content="UX/UI Designer based in Morocco. Personas, user journeys, wireframes, and Figma prototypes for accessible interfaces. Google UX Design certified.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&amp;family=Inter:wght@400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet">
   <style>
-    /* =========================================================
-       DESIGN TOKENS
-    ========================================================= */
     :root {
-      --accent:     #A54228;
-      --ink:        #1a1a1a;
-      --ink-soft:   #3a3a3a;
-      --ink-mute:   #6b6b6b;
-      --line:       #cccccc;
-      --date:       #8a7260;
-      --paper:      #ffffff;
-      --page-bg:    #ece9e2;
-
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
-      --font-mono:  'Space Mono', 'Courier New', monospace;
+      --accent: #B25940;
+      --name: #9C978E;
+      --ink: #2c2c2c;
+      --ink-soft: #3f3f3f;
+      --mute: #6e6a64;
+      --date: #8a7260;
+      --paper: #ffffff;
+      --page-bg: #ece9e2;
+      --rule: #2a2a2a;
     }
 
-    /* =========================================================
-       RESET
-    ========================================================= */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      -webkit-text-size-adjust: 100%;
-    }
+    html { -webkit-text-size-adjust: 100%; }
 
     body {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      line-height: 1.45;
+      background: var(--page-bg);
       color: var(--ink);
-      background-color: var(--page-bg);
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     ul { list-style: none; }
-    a  { color: inherit; text-decoration: none; }
+    a { color: inherit; text-decoration: none; }
 
-    /* =========================================================
-       ACCESSIBILITY
-    ========================================================= */
-    .sr-only {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
+    a:hover { color: var(--ink); }
 
     :focus-visible {
       outline: 3px solid var(--accent);
       outline-offset: 3px;
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
     :focus:not(:focus-visible) { outline: none; }
@@ -84,46 +54,39 @@
       }
     }
 
-    /* =========================================================
-       A4 SHEET
-    ========================================================= */
     .sheet {
-      width: 210mm;
-      min-height: 297mm;
-      margin: 24px auto;
+      width: min(820px, calc(100% - 32px));
+      margin: 32px auto;
       background: var(--paper);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-      padding: 36px 44px 32px;
-      color: var(--ink);
+      padding: 40px 48px 36px;
     }
 
-    /* =========================================================
-       HEADER
-    ========================================================= */
     .resume-header {
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1.5px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
     .resume-name {
-      font-family: var(--font-serif);
-      font-size: 38px;
-      font-weight: 900;
-      letter-spacing: -1px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      font-size: clamp(32px, 5vw, 44px);
       line-height: 1;
-      color: var(--ink);
-      margin-bottom: 8px;
+      color: var(--name);
+      letter-spacing: -0.5px;
     }
 
     .resume-tagline {
-      font-family: var(--font-sans);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 2px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      color: var(--accent);
+      padding-bottom: 6px;
+      white-space: nowrap;
     }
 
     .resume-contact {
@@ -131,399 +94,296 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 4px;
-      font-size: 12px;
+      font-size: 13.5px;
       color: var(--accent);
+      padding-bottom: 14px;
+      border-bottom: 1px solid #eadfd4;
     }
 
-    .resume-contact a {
-      color: var(--accent);
-      transition: color 150ms ease;
-    }
+    .resume-contact .sep { margin: 0 6px; }
 
-    .resume-contact a:hover { color: var(--ink); }
-
-    .resume-contact .sep {
-      color: var(--ink-mute);
-      margin: 0 2px;
-    }
-
-    /* =========================================================
-       SECTION HEADINGS & DIVIDER
-    ========================================================= */
-    .section-heading {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .section-divider {
-      border: none;
-      border-top: 1px solid var(--line);
-      margin: 16px 0 12px;
-    }
-
-    /* =========================================================
-       SUMMARY
-    ========================================================= */
     .summary {
-      margin-bottom: 14px;
-    }
-
-    .summary p {
-      font-size: 12.5px;
-      line-height: 1.5;
+      margin: 16px 0 14px;
       font-style: italic;
       color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.55;
     }
 
-    /* =========================================================
-       EXPERIENCE ENTRIES
-    ========================================================= */
-    .experience-section { margin-bottom: 14px; }
+    .summary strong { font-style: italic; }
 
-    .entry {
+    .section-rule {
+      border: none;
+      border-top: 1.5px solid var(--rule);
+      margin: 6px 0 14px;
+    }
+
+    .section-heading {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .entry, .edu-entry, .skills-row {
       display: grid;
-      grid-template-columns: 90px 1fr;
+      grid-template-columns: 108px 1fr;
       gap: 0 20px;
-      margin-bottom: 14px;
-      page-break-inside: avoid;
+      margin-bottom: 16px;
     }
 
-    .entry-date {
-      font-size: 11.5px;
+    .entry-date, .edu-date, .skills-cat {
+      font-size: 13px;
       font-weight: 500;
       color: var(--date);
-      padding-top: 2px;
       line-height: 1.4;
+      padding-top: 2px;
     }
 
-    .entry-content { min-width: 0; }
-
-    .entry-title-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0;
-      margin-bottom: 4px;
-      line-height: 1.35;
-    }
-
-    .entry-role {
-      font-size: 14.5px;
+    .entry-role, .edu-degree {
+      font-size: 16px;
       font-weight: 700;
       color: var(--accent);
     }
 
-    .entry-pipe {
-      color: var(--ink-mute);
-      margin: 0 8px;
-      font-weight: 400;
-    }
+    .edu-link { text-decoration: underline; text-underline-offset: 3px; }
+    .edu-link:hover { color: var(--ink); }
 
-    .entry-org {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--ink-soft);
-    }
+    .entry-org, .edu-school { font-size: 14.5px; color: var(--ink-soft); }
 
-    .entry-desc {
-      font-size: 12.5px;
-      color: var(--ink-soft);
-      line-height: 1.55;
-      margin-bottom: 6px;
+    .pipe { color: var(--mute); margin: 0 7px; font-weight: 400; }
+
+    .entry-desc, .edu-desc {
       font-style: italic;
+      color: var(--ink-soft);
+      margin-top: 2px;
+      font-size: 14px;
+      line-height: 1.45;
     }
 
-    .entry-bullets { margin-top: 4px; }
+    .entry-bullets { margin-top: 6px; }
 
     .entry-bullets li {
-      font-size: 12.5px;
-      color: var(--ink-soft);
-      line-height: 1.55;
-      padding-left: 16px;
       position: relative;
-      margin-bottom: 2px;
+      padding-left: 14px;
+      margin-bottom: 4px;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.5;
     }
 
     .entry-bullets li::before {
       content: "●";
       position: absolute;
       left: 0;
+      top: 6px;
       color: var(--accent);
       font-size: 7px;
-      top: 5px;
-    }
-
-    /* =========================================================
-       EDUCATION
-    ========================================================= */
-    .education-section { margin-bottom: 14px; }
-
-    .edu-entry {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 0 20px;
-      margin-bottom: 6px;
-    }
-
-    .edu-date {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--date);
-      padding-top: 1px;
-    }
-
-    .edu-title-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0;
-      line-height: 1.4;
-    }
-
-    .edu-degree {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .edu-school {
-      font-size: 12.5px;
-      color: var(--ink-soft);
-    }
-
-    .edu-desc {
-      font-size: 12px;
-      color: var(--ink-mute);
-      font-style: italic;
-      margin-top: 2px;
-      line-height: 1.45;
-    }
-
-    /* =========================================================
-       SKILLS
-    ========================================================= */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 4px 20px;
-    }
-
-    .skills-cat {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--date);
-      padding-top: 1px;
     }
 
     .skills-list {
-      font-size: 12.5px;
       color: var(--ink-soft);
-      line-height: 1.55;
+      font-size: 14.5px;
+      line-height: 1.5;
     }
 
-    /* =========================================================
-       RESPONSIVE — mobile stacking
-    ========================================================= */
-    @media (max-width: 820px) {
+    .edu-entry { margin-bottom: 10px; }
+    .skills-row { margin-bottom: 6px; }
+
+    @media (max-width: 700px) {
       .sheet {
         width: 100%;
         margin: 0;
         box-shadow: none;
-        padding: 24px 20px;
-        min-height: unset;
+        padding: 28px 20px 32px;
       }
 
-      .resume-name { font-size: 28px; }
+      .resume-header { flex-direction: column; align-items: flex-start; gap: 8px; }
 
-      .entry,
-      .edu-entry,
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
+      .entry, .edu-entry, .skills-row { grid-template-columns: 1fr; gap: 2px; }
 
-      .entry-date,
-      .edu-date,
-      .skills-cat {
-        margin-bottom: 2px;
-      }
+      .entry-date, .edu-date, .skills-cat { padding-top: 0; }
     }
 
-    /* =========================================================
-       PRINT
-    ========================================================= */
+    @page { size: A4; margin: 12mm; }
+
     @media print {
-      body { background: #fff; }
-
+      body { background: #fff; font-size: 11px; }
       .sheet {
+        width: auto;
         margin: 0;
         box-shadow: none;
-        width: 100%;
-        min-height: auto;
-        padding: 24px 32px 20px;
-        border: none;
+        padding: 0;
       }
-
-      @page {
-        size: A4;
-        margin: 0;
-      }
+      a { color: inherit; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="sheet">
+  <main class="sheet">
+    <header class="resume-header">
+      <h1 class="resume-name">Salaheddine Lafnouche</h1>
+      <p class="resume-tagline">UX/UI Designer</p>
+    </header>
+    <nav class="resume-contact" aria-label="Contact">
+      <a href="https://salaheddinelafnouche.com/">salaheddinelafnouche.com</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="mailto:portfolio@salaheddinelafnouche.com">portfolio@salaheddinelafnouche.com</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <a href="tel:+212629335434">+212 629335434</a>
+      <span class="sep" aria-hidden="true">•</span>
+      <span>Khemisset, Morocco</span>
+    </nav>
 
-      <!-- Header -->
-      <header class="resume-header">
-        <h1 class="resume-name">Salaheddine Lafnouche</h1>
-        <p class="resume-tagline">Product Designer &amp; HCI</p>
-        <nav class="resume-contact" aria-label="Contact">
-          <a href="https://salaheddinelafnouche.com/" target="_blank" rel="noopener noreferrer">salaheddinelafnouche.com</a>
-          <span class="sep" aria-hidden="true">•</span>
-          <a href="mailto:salaheddinelafnouche@gmail.com">salaheddinelafnouche@gmail.com</a>
-          <span class="sep" aria-hidden="true">•</span>
-          <a href="https://www.linkedin.com/in/salah-eddine-lafnouche-66881525b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span class="sep" aria-hidden="true">•</span>
-          <a href="https://dribbble.com/salah-elafnouc" target="_blank" rel="noopener noreferrer">Dribbble</a>
-          <span class="sep" aria-hidden="true">•</span>
-          <span>Khemisset, Rabat-Salé-Kénitra, Morocco</span>
-        </nav>
-      </header>
+    <p class="summary">
+      <strong>Google-certified UX/UI designer</strong> who turns user needs into clear, accessible interfaces. I define <strong>personas</strong>, <strong>user journeys</strong>, and <strong>interaction scenarios</strong>, then design <strong>wireframes</strong> and <strong>Figma prototypes</strong> and test them with users. A programming background keeps mockups consistent with what development teams ship.
+    </p>
 
-      <!-- Summary -->
-      <section class="summary" aria-label="Summary">
-        <p>
-          <strong>Google-certified Product Designer</strong> &amp; former military educator with a <strong>coding background</strong>. Skilled in turning complex briefs into intuitive, <strong>WCAG 2.1 AA-compliant</strong> digital products driven by <strong>user research</strong> and <strong>rapid prototyping</strong>.
-        </p>
-      </section>
+    <hr class="section-rule">
 
-      <hr class="section-divider">
+    <section aria-labelledby="exp-heading">
+      <h2 id="exp-heading" class="section-heading">Experience</h2>
 
-      <!-- Experience -->
-      <section class="experience-section" aria-labelledby="exp-heading">
-        <h2 id="exp-heading" class="section-heading">Experience</h2>
-
-        <div class="entry">
-          <div class="entry-date">11/2025 – 01/2026</div>
-          <div class="entry-content">
-            <div class="entry-title-line">
-              <span class="entry-role">Project Lead</span>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <span class="entry-org">Youscent</span>
-            </div>
-            <p class="entry-desc">Perfumer / AI Fragrance Discovery Platform</p>
-            <ul class="entry-bullets">
-              <li>Designed an <strong>emotion-driven input model</strong> replacing industry jargon with memory-based prompts, <strong>boosting first-time AI generation conversion to 73%</strong>.</li>
-              <li>Conducted <strong>6 group interviews</strong> and <strong>4 competitor audits</strong> to map cognitive friction points in fragrance selection.</li>
-              <li>Validated <strong>Figma prototypes</strong> across iterative testing sessions, achieving an <strong>81.4 System Usability Scale (SUS) score</strong>.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">06/2025 – 10/2025</div>
-          <div class="entry-content">
-            <div class="entry-title-line">
-              <span class="entry-role">Founder &amp; Lead UX Designer</span>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <span class="entry-org">Tech4U</span>
-            </div>
-            <p class="entry-desc">Adaptive EdTech Platform</p>
-            <ul class="entry-bullets">
-              <li>Researched shift-worker learning habits to solve an <strong>89% dropout rate</strong> in rigid ed-tech environments.</li>
-              <li>Prototyped a <strong>"Soft Program" feature</strong> enabling users to dynamically scale UI density and lesson pacing according to daily cognitive bandwidth.</li>
-              <li>Built a <strong>WCAG 2.1 AA-compliant design system</strong>, driving a <strong>40% increase in projected learner retention</strong>.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-date">2021 – 2024</div>
-          <div class="entry-content">
-            <div class="entry-title-line">
-              <span class="entry-role">Programming Instructor</span>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <span class="entry-org">Military Institution</span>
-            </div>
-            <p class="entry-desc">Technical Education &amp; Systems Training</p>
-            <ul class="entry-bullets">
-              <li>Taught <strong>programming logic</strong>, <strong>hardware concepts</strong>, and <strong>system workflows</strong> to diverse military cohorts under high-discipline standards.</li>
-              <li>Developed structured curriculum materials that <strong>translated complex code concepts into accessible learning paths</strong>.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <hr class="section-divider">
-
-      <!-- Education & Certification -->
-      <section class="education-section" aria-labelledby="edu-heading">
-        <h2 id="edu-heading" class="section-heading">Education &amp; Certification</h2>
-
-        <div class="edu-entry">
-          <div class="edu-date">2026</div>
+      <article class="entry">
+        <div class="entry-date">02/2026 – Present</div>
+        <div>
           <div>
-            <div class="edu-title-line">
-              <a href="https://www.coursera.org/account/accomplishments/certificate/AT79DM7RUO7V" target="_blank" rel="noopener noreferrer" style="color: inherit;">
-                <span class="edu-degree">Human-Computer Interaction Certificate</span>
-              </a>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <span class="edu-school">BITS Pilani · Coursera</span>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <a href="https://www.coursera.org/account/accomplishments/certificate/AT79DM7RUO7V" target="_blank" rel="noopener noreferrer" style="font-size: 11.5px; color: var(--accent); text-decoration: underline; font-weight: 500;">Verify Certificate ↗</a>
-            </div>
-            <div class="edu-desc">Advanced <strong>interaction paradigms</strong>, <strong>user-centered design principles</strong>, and <strong>cognitive psychology</strong> applied to digital interfaces.</div>
+            <span class="entry-role">Lead Product Designer (SaaS)</span>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="entry-org">YouScent Digital Perfume Atelier</span>
           </div>
+          <p class="entry-desc">Two-sided atelier for memory-led formulas and perfumer briefs</p>
+          <ul class="entry-bullets">
+            <li>Defined <strong>personas</strong> and <strong>interaction scenarios</strong> for a two-sided atelier where a memory and up to three archetype colors become an exact formula sealed with a <strong>verification hash</strong>.</li>
+            <li>Storyboarded the perfumer journey so a brief can be claimed and blended by hand. Usability sessions on the compose flow reached a <strong>94% task completion rate</strong>.</li>
+            <li>Designed plan interfaces from Freemium through Perfumery House, with <strong>custom IFRA export</strong> on the House plan. New accounts start with five complimentary credits.</li>
+          </ul>
         </div>
+      </article>
 
-        <div class="edu-entry">
-          <div class="edu-date">2025</div>
+      <article class="entry">
+        <div class="entry-date">11/2025 – 01/2026</div>
+        <div>
           <div>
-            <div class="edu-title-line">
-              <a href="https://www.credly.com/badges/aee2e68f-151f-4859-891a-6eafb2865cf8" target="_blank" rel="noopener noreferrer" style="color: inherit;">
-                <span class="edu-degree">Google UX Design Professional Certificate (v.3)</span>
-              </a>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <span class="edu-school">Coursera</span>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <a href="https://www.credly.com/badges/aee2e68f-151f-4859-891a-6eafb2865cf8" target="_blank" rel="noopener noreferrer" style="font-size: 11.5px; color: var(--accent); text-decoration: underline; font-weight: 500;">Verify Certificate ↗</a>
-            </div>
-            <div class="edu-desc">End-to-end UX process: <strong>user research</strong>, <strong>wireframing</strong>, <strong>prototyping</strong>, <strong>usability testing</strong>, and <strong>accessibility</strong>.</div>
+            <span class="entry-role">Product Designer</span>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="entry-org">YouScent</span>
           </div>
+          <p class="entry-desc">AI Fragrance Discovery Platform (Consumer App)</p>
+          <ul class="entry-bullets">
+            <li>Defined <strong>personas</strong> and <strong>interaction scenarios</strong> for a guided, prompt-based flow, replacing jargon with plain-language prompts and lifting first-time generation to <strong>73%</strong>.</li>
+            <li>Mapped <strong>user journeys</strong> and <strong>storyboards</strong> from <strong>6 group interviews</strong> and <strong>4 competitor audits</strong>, pinpointing where selection broke down.</li>
+            <li>Designed <strong>wireframes</strong> and <strong>Figma prototypes</strong>, ran usability tests, and folded feedback into the flow to reach an <strong>81.4 SUS score</strong>.</li>
+          </ul>
         </div>
+      </article>
 
-        <div class="edu-entry">
-          <div class="edu-date">2018 – 2021</div>
+      <article class="entry">
+        <div class="entry-date">06/2025 – 10/2025</div>
+        <div>
           <div>
-            <div class="edu-title-line">
-              <span class="edu-degree">Diplôme en Informatique</span>
-              <span class="entry-pipe" aria-hidden="true">|</span>
-              <span class="edu-school">Military Institution, Morocco</span>
-            </div>
+            <span class="entry-role">Founder &amp; Lead UX Designer</span>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="entry-org">Tech4U</span>
+          </div>
+          <p class="entry-desc">Adaptive EdTech Platform</p>
+          <ul class="entry-bullets">
+            <li>Analysed shift-worker <strong>needs and journeys</strong> to address an <strong>89% dropout rate</strong> in rigid learning products.</li>
+            <li>Designed <strong>wireframes</strong> and an adaptive interface <strong>prototype</strong> so users could scale density and pacing to their cognitive bandwidth.</li>
+            <li>Built a <strong>WCAG 2.1 AA design system</strong> so visual and ergonomic rules stayed consistent across screens, with a projected <strong>40% gain in learner retention</strong>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-date">2021 – 2024</div>
+        <div>
+          <div>
+            <span class="entry-role">Programming Instructor</span>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="entry-org">C.I.T • Kenitra</span>
+          </div>
+          <p class="entry-desc">Technical Education &amp; Systems Training</p>
+          <ul class="entry-bullets">
+            <li>Taught <strong>programming logic</strong>, <strong>hardware concepts</strong>, and <strong>system workflows</strong> to mixed cohorts across disciplines.</li>
+            <li>Turned complex technical concepts into structured, <strong>accessible learning paths</strong>.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <hr class="section-rule">
+
+    <section aria-labelledby="edu-heading">
+      <h2 id="edu-heading" class="section-heading">Education &amp; Certification</h2>
+
+      <article class="edu-entry">
+        <div class="edu-date">2026</div>
+        <div>
+          <div>
+            <a class="edu-link" href="https://coursera.org/share/c78fd5d739d3dd819d5b34649ce879e2"><span class="edu-degree">Introduction to Artificial Intelligence (AI)</span></a>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="edu-school">IBM • Coursera</span>
+          </div>
+          <p class="edu-desc">Foundational AI concepts, neural networks, deep learning, machine learning algorithms, and real-world AI applications.</p>
+        </div>
+      </article>
+
+      <article class="edu-entry">
+        <div class="edu-date">2026</div>
+        <div>
+          <div>
+            <a class="edu-link" href="https://www.coursera.org/account/accomplishments/verify/AT79DM7RUO7V"><span class="edu-degree">Human-Computer Interaction Certificate</span></a>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="edu-school">BITS Pilani • Coursera</span>
+          </div>
+          <p class="edu-desc">Advanced <strong>interaction paradigms</strong>, <strong>user-centered design principles</strong>, and <strong>cognitive psychology</strong> applied to digital interfaces.</p>
+        </div>
+      </article>
+
+      <article class="edu-entry">
+        <div class="edu-date">2025</div>
+        <div>
+          <div>
+            <a class="edu-link" href="https://www.credly.com/badges/aee2e68f-151f-4859-891a-6eafb2865cf8/public_url"><span class="edu-degree">Google UX Design Professional Certificate</span></a>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="edu-school">Google • Coursera</span>
+          </div>
+          <p class="edu-desc">End-to-end UX process: <strong>user research</strong>, <strong>personas</strong>, <strong>user journeys</strong>, <strong>wireframing</strong>, <strong>prototyping</strong>, <strong>usability testing</strong>, and <strong>accessibility</strong>.</p>
+        </div>
+      </article>
+
+      <article class="edu-entry">
+        <div class="edu-date">2018 – 2021</div>
+        <div>
+          <div>
+            <span class="edu-degree">Diplôme en Informatique</span>
+            <span class="pipe" aria-hidden="true">|</span>
+            <span class="edu-school">C.I.T • Kenitra</span>
           </div>
         </div>
-      </section>
+      </article>
+    </section>
 
-      <hr class="section-divider">
+    <hr class="section-rule">
 
-      <!-- Skills & Methods -->
-      <section aria-labelledby="skills-heading">
-        <h2 id="skills-heading" class="section-heading">Skills &amp; Methods</h2>
-        <div class="skills-grid">
-          <div class="skills-cat">Design:</div>
-          <div class="skills-list">User Research, Wireframing, Prototyping, Usability Testing, Information Architecture, Design Systems, WCAG 2.1 AA Accessibility.</div>
-          <div class="skills-cat">Tools:</div>
-          <div class="skills-list">Figma, React, TypeScript, HTML5, CSS3, JavaScript, Git, VS Code.</div>
-          <div class="skills-cat">Languages:</div>
-          <div class="skills-list">Arabic (Native), English (Professional), French (Professional).</div>
-        </div>
-      </section>
-
-    </div><!-- /.sheet -->
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="section-heading">Skills &amp; Methods</h2>
+      <div class="skills-row">
+        <div class="skills-cat">Methods:</div>
+        <div class="skills-list">Personas, User Journeys, Storyboards, Interaction Scenarios, Wireframing, Prototyping, Usability Testing, Information Architecture, Design Systems, WCAG 2.1 AA, Multi-device Interfaces.</div>
+      </div>
+      <div class="skills-row">
+        <div class="skills-cat">Tools:</div>
+        <div class="skills-list">Figma, React, TypeScript, HTML5, CSS3, JavaScript, Git, VS Code.</div>
+      </div>
+      <div class="skills-row">
+        <div class="skills-cat">Languages:</div>
+        <div class="skills-list">Arabic (Native), English (Professional), French (Professional).</div>
+      </div>
+    </section>
   </main>
 </body>
 </html>
